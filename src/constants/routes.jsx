@@ -21,7 +21,6 @@ import VerifyEmail from "../pages/VerifyEmail";
 import VerifyOtp from "../pages/VerifyOtp";
 import ChangePassword from "../pages/ChangePassword";
 
-
 // export const routes = createBrowserRouter([
 //   {
 //     path:"/login",
@@ -43,12 +42,7 @@ export const routes = [
   {
     title: "Login Page",
     url: "/login",
-    page: <Login /> ,
-  },
-  {
-    title: "Register Page",
-    url: "/register",
-    page: <Register />,
+    page: <Login />,
   },
   {
     title: "Verify Email Page",
@@ -73,7 +67,7 @@ export const routes = [
   {
     title: "Users Page",
     url: "/users",
-    page: <Layout pages={<Users/>} />,
+    page: <Layout pages={<Users />} />,
   },
   {
     title: "Subscriptions Page",
@@ -82,7 +76,7 @@ export const routes = [
   },
   {
     title: "Revenue Page",
-    url: "/revenue",
+    url: "/revenue/:id",
     page: <Layout pages={<Revenue />} />,
   },
   {
