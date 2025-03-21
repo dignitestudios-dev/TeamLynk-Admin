@@ -1,11 +1,12 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineSubscriptions } from "react-icons/md";
-import {  IoNotificationsOutline } from "react-icons/io5";
+import { IoNotificationsOutline } from "react-icons/io5";
 import { Logo } from "../../assets/export";
 import { HiOutlineLogout } from "react-icons/hi";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { LuUser } from "react-icons/lu";
+import Cookies from "js-cookie";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -48,7 +49,13 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className={`w-full border py-3 px-6 rounded-xl text-white`}>
-          <button onClick={()=> navigate("/login")} className="text-sm font-medium w-full flex items-center gap-3 text-black">
+          <button
+            onClick={() => {
+              Cookies.remove("token");
+              navigate("/login");
+            }}
+            className="text-sm font-medium w-full flex items-center gap-3 text-black"
+          >
             <HiOutlineLogout className="text-lg" /> Logout
           </button>
         </li>

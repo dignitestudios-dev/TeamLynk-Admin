@@ -1,15 +1,25 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Sidebar from "./Sidebar";
 import { PiCaretDown } from "react-icons/pi";
 import { ProfileImage } from "../../assets/export";
 import { HiMenu, HiOutlineMenuAlt2 } from "react-icons/hi";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Layout = ({ pages }) => {
+  const navigate = useNavigate();
   const sidebarRef = useRef(null);
   const [isOpen, setisOpen] = useState(false);
   const toggleModal = () => {
     setisOpen(!isOpen);
   };
+  useEffect(() => {
+    if (Cookies.get("token")) {
+      navigate("/");
+    } else {
+      navigate("/login");
+    }
+  }, []);
   return (
     <div className="w-screen h-screen flex justify-start items-start">
       <div
@@ -30,9 +40,14 @@ const Layout = ({ pages }) => {
 
       <div className="w-full relative lg:w-[calc(100%-15rem)] xl:w-[calc(100%-18rem)] h-full  overflow-y-auto overflow-x-hidden">
         <div className="sticky top-0 left-0 w-full h-16 bg-white border-b border-gray-200 flex items-center justify-between lg:justify-end px-4 z-20">
-          <button onClick={()=> setisOpen((prev)=> !prev)} className="lg:hidden block"><HiOutlineMenuAlt2 className="text-2xl"/></button>
+          <button
+            onClick={() => setisOpen((prev) => !prev)}
+            className="lg:hidden block"
+          >
+            <HiOutlineMenuAlt2 className="text-2xl" />
+          </button>
           <div className="flex gap-3 items-center  py-4 font-normal text-gray-900">
-            <div className="relative bg-[#c00000]/[0.05] rounded-full h-10 w-10">
+            {/* <div className="relative bg-[#c00000]/[0.05] rounded-full h-10 w-10">
               <img
                 class="h-full w-full rounded-full object-cover object-center"
                 src={ProfileImage}
@@ -44,7 +59,7 @@ const Layout = ({ pages }) => {
                 Steven Jobs
               </div>
               <div className="text-gray-400">jobs@sailboatui.com</div>
-            </div>
+            </div> */}
 
             {/* <button>
             <PiCaretDown />
