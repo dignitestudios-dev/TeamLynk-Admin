@@ -14,24 +14,32 @@ const SummaryCard = ({ summary }) => {
           <p className="text-lg font-bold">${summary?.count}</p>
         )}
       </div>
-      {summary?.title == "Total Revenue" && <img src={summary?.image} alt="" />}
+      {summary?.title == "Total Revenue" && (
+        <img
+          src={summary?.image}
+          alt=""
+          className="object-scale-down scale-150"
+        />
+      )}
       {summary?.title == "Total Sales" && <img src={summary?.image} alt="" />}
 
       {summary?.title == "Users" && (
         <>
           <div className="w-full flex flex-col justify-start items-start gap-[2px]">
             <h1 className="text-gray-700 tracking-wider text-xs">
-              Basic plan
+              Individual plan
             </h1>
-            <img src={summary?.image} alt="" className="w-full h-[6px]" />
+            <span className="w-full h-[6px] bg-[#E0E0E0] flex items-start justify-start rounded-full">
+              <span className="w-[50%] h-full bg-[#028EE6] rounded-full"></span>
+            </span>
           </div>
           <div className="w-full flex flex-col justify-start items-start gap-[2px]">
-            <h1 className="text-gray-700 tracking-wider text-xs">Premium plan</h1>
-            <img src={summary?.image} alt="" className="w-full h-[6px]" />
-          </div>
-          <div className="w-full flex flex-col justify-start items-start gap-[2px]">
-            <h1 className="text-gray-700 tracking-wider text-xs">Standard plan</h1>
-            <img src={summary?.image} alt="" className="w-full h-[6px]" />
+            <h1 className="text-gray-700 tracking-wider text-xs">
+              Family plan
+            </h1>
+            <span className="w-full h-[6px] bg-[#E0E0E0] flex items-start justify-start rounded-full">
+              <span className="w-[50%] h-full bg-[#028EE6] rounded-full"></span>
+            </span>
           </div>
         </>
       )}

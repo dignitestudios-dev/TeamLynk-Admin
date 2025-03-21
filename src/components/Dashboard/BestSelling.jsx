@@ -20,20 +20,18 @@ const BestSelling = () => {
         </p>
         <div className="flex flex-col gap-4">
           <div className="border rounded-2xl w-full flex justify-between items-center px-4 py-2">
-            <p className="font-medium text-[#5C5F6A] text-sm">Basic Plan </p>
+            <p className="font-medium text-[#5C5F6A] text-sm">
+              Individual Plan{" "}
+            </p>
             <p className="text-black text-sm">$345</p>
           </div>
           <div className="border rounded-2xl w-full flex justify-between items-center px-4 py-2">
-            <p className="font-medium text-[#5C5F6A] text-sm">Standard Plan </p>
-            <p className="text-black text-sm">$345</p>
-          </div>
-          <div className="border rounded-2xl w-full flex justify-between items-center px-4 py-2">
-            <p className="font-medium text-[#5C5F6A] text-sm">Premium Plan </p>
+            <p className="font-medium text-[#5C5F6A] text-sm">Family Plan </p>
             <p className="text-black text-sm">$345</p>
           </div>
         </div>
       </div>
-      <img src={BestSellingChart} alt="" className="block w-[96px] h-[96px]"/>
+      <img src={BestSellingChart} alt="" className="block w-[96px] h-[96px]" />
     </div>
   );
 };
